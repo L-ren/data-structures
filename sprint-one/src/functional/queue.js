@@ -9,9 +9,6 @@ var Queue = function() {
   someInstance.enqueue = function(value) {
     // get object size, is the index at which to add value
     var size = someInstance.size();
-    if (value === 'b') {
-      debugger;
-    }
     storage[size] = value;
   };
 
@@ -26,6 +23,10 @@ var Queue = function() {
     }
     delete storage[size];
 
+    // turns out it doesn't matter that I maintain the indices like an array
+    // (first element doesn't always have to stay at key '0')
+    // I would refactor without the 'update indices' code, and use Math.min
+    // and Math.max methods to delete and add values, respectively
     return value;
   };
 
