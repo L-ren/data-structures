@@ -11,17 +11,9 @@ Stack.prototype.push = function(value) {
   this.storage[index] = value;
 };
 Stack.prototype.pop = function() {
-  var value = this.storage[0];
-  delete this.storage[0];
-
-  // shift values down an index
-  for (var i = 0; i < this.size(); i++) {
-    this.storage[i] = this.storage[i + 1];
-  }
-
-  // delete last (redundant) element
-  delete this.storage[this.size() - 1];
-
+  var index = this.size();
+  var value = this.storage[index - 1];
+  delete this.storage[index - 1];
   return value;
 };
 Stack.prototype.size = function() {
