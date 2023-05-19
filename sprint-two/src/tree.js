@@ -19,7 +19,6 @@ treeMethods.addChild = function(value) {
 treeMethods.contains = function(target) { //use recursion
   //we're passed a target value
   //declare something to contain boolean, which we return later
-  debugger;
 
   if (containsValue === undefined) {
     var containsValue = false;
