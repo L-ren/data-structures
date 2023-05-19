@@ -4,7 +4,6 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
-
     //Specification:
       //input: a value
       //output: none????? see question

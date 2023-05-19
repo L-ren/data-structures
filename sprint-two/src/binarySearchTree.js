@@ -1,6 +1,6 @@
 var BinarySearchTree = function(value) {
   //put insert, contains, depthFirstLog()
-  var tree = Node(value);
+  var tree = Branch(value);
 
   /*
     tree.rootNode = {.left .right .value};
@@ -8,10 +8,7 @@ var BinarySearchTree = function(value) {
 
   tree.insert = function(value) {
     // create new node, call node constructor
-    if (value === 2) {
-      debugger;
-    }
-    var newNode = Node(value);
+    var newNode = Branch(value);
 
     var trailingPointer; // trailingPointer is a trailing pointer that follows x
     var currentPointer = this; //x is a pointer
@@ -34,15 +31,19 @@ var BinarySearchTree = function(value) {
 
 
 
-  tree.contains = function(node, value) {
-    if(node === null || value === node.value) {
-      return node;
+  tree.contains = function(target) {
+    if(this.value === target) {
+      return true;
     }
-    if(value < node.value) {
-      return recursiveTreeSearch(node.left, value);
+    if (target === 7) {
+      debugger;
+    }
+    if(target < this.value) {
+      return this.left.contains(target);
     } else {
-      return recursiveTreeSearch(node.right, value);
+      return this.right.contains(target);
     }
+    return false;
   }
 
   tree.depthFirstLog = function() {
@@ -52,7 +53,7 @@ var BinarySearchTree = function(value) {
   return tree;
 };
 
-var Node = function(value) {
+var Branch = function(value) {
   var node = {};
   node.parent;
   node.value = value;
